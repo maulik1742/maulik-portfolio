@@ -5,7 +5,7 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-mauliksolanki.vercel.app-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://mauliksolanki.vercel.app)
 [![Email](https://img.shields.io/badge/Email-mauliksolanki2002@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mauliksolanki2002@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mauliksolanki)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maulik-solanki-8b6a85218)
 
 </div>
 
