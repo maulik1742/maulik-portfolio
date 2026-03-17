@@ -85,7 +85,9 @@ Contact Section         — Phone, WhatsApp, and inquiry form
 
 ---
 
-## Getting Started
+# Hi, I'm Maulik Solanki 👋
+
+### Full-Stack Developer · MERN Stack · Payments · Scalable Web Apps
 
 ### Prerequisites
 
@@ -196,7 +198,7 @@ Interested? Reach out:
 
 Found a bug or have a suggestion? Feel free to open an issue or submit a pull request.
 
-```bash
+````bash
 git checkout -b feature/your-feature-name
 git commit -m "Add: your feature description"
 git push origin feature/your-feature-name
@@ -204,6 +206,7 @@ git push origin feature/your-feature-name
 ```
 
 ---
+
 
 ## License
 
@@ -219,3 +222,4 @@ If this project helped you, please consider giving it a star on GitHub. It helps
 
 Built with dedication for healthcare professionals across India.
 Helping clinics go online, one website at a time.
+````
