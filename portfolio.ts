@@ -107,6 +107,20 @@ export const portfolioData = {
       image: "/images/Vianne.png",
       link: "https://viannejewels.com/",
     },
+    {
+      title: "SmileCare",
+      description:
+        "A dental clinic website that provides information about the clinic, its services, and contact details.",
+      image: "/images/smileCare.png",
+      link: "https://smilecare-roan.vercel.app/",
+    },
+    {
+      title: "Briefly",
+      description:
+        "A news application that allows users to read AI-Powered Personalized News Digest.",
+      image: "/images/Briefly.png",
+      link: "https://github.com/maulik1742/news_app",
+    },
   ],
   contact: {
     title: "Get in Touch",
