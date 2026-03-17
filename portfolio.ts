@@ -121,6 +121,13 @@ export const portfolioData = {
       image: "/images/Briefly.png",
       link: "https://github.com/maulik1742/news_app",
     },
+    {
+      title: "Talksy",
+      description:
+        "A real-time chat application that allows users to chat with each other in real-time.",
+      image: "/images/talksy.png",
+      link: "https://github.com/maulik1742/chat_app",
+    },
   ],
   contact: {
     title: "Get in Touch",
