@@ -128,6 +128,13 @@ export const portfolioData = {
       image: "/images/talksy.png",
       link: "https://github.com/maulik1742/chat_app",
     },
+    {
+      title: "PixelTrim",
+      description:
+        "A fast, lightweight web tool to resize, compress, and trim images in bulk with precision and ease.",
+      image: "/images/pixeltrim.png",
+      link: "https://pixeltrim.vercel.app",
+    },
   ],
   contact: {
     title: "Get in Touch",
