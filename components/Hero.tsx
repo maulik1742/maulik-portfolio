@@ -1,179 +1,182 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import Image from "next/image";
+import { FiArrowDown, FiArrowUpRight, FiDownload, FiMail } from "react-icons/fi";
 import { portfolioData } from "../portfolio";
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.12 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
+const item: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" } },
 };
+
+const stats = [
+  ["3.5+", "Years shipping"],
+  ["10+", "Products built"],
+  ["5+", "Payment flows"],
+  ["MERN", "Core stack"],
+];
+
+const previewProjects = portfolioData.portfolio.slice(0, 3);
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative py-20 min-h-screen flex items-center justify-center overflow-hidden text-white"
+      className="relative z-10 flex min-h-screen items-center overflow-hidden px-6 pb-20 pt-32 text-white"
     >
-      {/* CONTENT */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="relative z-10 max-w-7xl px-6 text-center"
-      >
-        {/* EYEBROW */}
-        <motion.p
-          variants={item}
-          className="uppercase tracking-widest text-xs text-white/60 mb-4"
-        >
-          Building scalable products • Real-world impact
-        </motion.p>
-
-        {/* HEADLINE */}
-        <motion.h1
-          variants={item}
-          className="sm:text-5xl text-4xl md:text-7xl font-extrabold leading-tight mb-6"
-        >
-          I’m <span className="text-yellow-300">{portfolioData.hero.name}</span>
-          <br />
-        </motion.h1>
-
-        {/* TAGLINE */}
-        <motion.h2
-          variants={item}
-          className="xs:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-6"
-        >
-          Full-stack developer specializing in scalable MERN applications,
-          payments, dashboards, and real business workflows.
-        </motion.h2>
-
-        {/* DESCRIPTION */}
-        <motion.p
-          variants={item}
-          className="xs:text-base md:text-lg text-white/70 max-w-3xl mx-auto mb-10"
-        >
-          {portfolioData.hero.description}
-        </motion.p>
-
-        {/* TECH STACK QUICK SCAN */}
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.02fr_0.98fr]">
         <motion.div
-          variants={item}
-          className="flex flex-wrap justify-center gap-3 mb-10"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="max-w-3xl"
         >
-          {["React", "Next.js", "Node.js", "MongoDB", "Stripe", "AWS"].map(
-            (tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 rounded-full bg-white/10 text-sm text-white/80 backdrop-blur"
-              >
-                {tech}
+          <motion.div
+            variants={item}
+            className="mb-6 inline-flex items-center gap-3 border border-white/12 bg-white/[0.04] px-3 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/70 backdrop-blur"
+          >
+            <span className="h-2 w-2 bg-teal-300" />
+            Available for product builds
+          </motion.div>
+
+          <motion.h1
+            variants={item}
+            className="text-5xl font-black leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl"
+          >
+            I build web products that feel fast, look sharp, and survive
+            production.
+          </motion.h1>
+
+          <motion.p
+            variants={item}
+            className="mt-7 max-w-2xl text-lg leading-8 text-white/68 md:text-xl"
+          >
+            {portfolioData.hero.name} is a {portfolioData.hero.tagline.toLowerCase()} focused
+            on Next.js, MERN apps, dashboards, payments, and AI-powered
+            workflows for ambitious teams.
+          </motion.p>
+
+          <motion.div
+            variants={item}
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
+          >
+            <a
+              href="#portfolio"
+              className="inline-flex h-12 items-center justify-center gap-2 bg-teal-300 px-5 text-sm font-bold text-slate-950 shadow-[0_16px_42px_rgba(45,212,191,0.22)] transition hover:-translate-y-0.5 hover:bg-teal-200"
+            >
+              View selected work <FiArrowUpRight aria-hidden />
+            </a>
+            <a
+              href={`mailto:${portfolioData.contact.email}`}
+              className="inline-flex h-12 items-center justify-center gap-2 border border-white/15 bg-white/[0.04] px-5 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.08]"
+            >
+              <FiMail aria-hidden /> Start a conversation
+            </a>
+            <a
+              href="/Maulik_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 border border-white/10 px-5 text-sm font-bold text-white/75 transition hover:text-white"
+            >
+              <FiDownload aria-hidden /> Resume
+            </a>
+          </motion.div>
+
+          <motion.div
+            variants={item}
+            className="mt-12 grid max-w-2xl grid-cols-2 border-y border-white/10 sm:grid-cols-4"
+          >
+            {stats.map(([value, label]) => (
+              <div key={label} className="border-white/10 py-5 sm:border-r sm:px-5 first:sm:pl-0 last:border-r-0">
+                <p className="text-3xl font-black text-white">{value}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.16em] text-white/48">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 36 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="relative"
+        >
+          <div className="absolute -inset-6 border border-teal-300/10" />
+          <div className="relative border border-white/12 bg-white/[0.045] p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
+            <div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="flex gap-2">
+                <span className="h-2.5 w-2.5 bg-red-400" />
+                <span className="h-2.5 w-2.5 bg-yellow-300" />
+                <span className="h-2.5 w-2.5 bg-teal-300" />
+              </div>
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">
+                Product cockpit
               </span>
-            )
-          )}
+            </div>
+
+            <div className="grid gap-3">
+              <div className="relative aspect-[16/9] overflow-hidden bg-slate-950">
+                <Image
+                  src={previewProjects[0].image}
+                  alt={previewProjects[0].title}
+                  fill
+                  priority
+                  className="object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-teal-200">
+                    Featured build
+                  </p>
+                  <h2 className="mt-1 text-2xl font-black text-white">
+                    {previewProjects[0].title}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                {previewProjects.slice(1).map((project) => (
+                  <div
+                    key={project.title}
+                    className="relative aspect-[4/3] overflow-hidden border border-white/10 bg-slate-950"
+                  >
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+                    <p className="absolute bottom-3 left-3 right-3 text-sm font-bold text-white">
+                      {project.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
+      </div>
 
-        {/* CTA */}
-        <motion.div
-          variants={item}
-          className="flex flex-wrap justify-center gap-4 mb-14"
-        >
-          <a
-            href="#portfolio"
-            className="
-              px-8 py-4 rounded-full
-              bg-yellow-400 text-black
-              font-semibold text-lg
-              hover:scale-105
-              transition-transform
-            "
-          >
-            See Real Projects
-          </a>
-
-          <a
-            href={`mailto:${portfolioData.contact.email}`}
-            className="
-              px-8 py-4 rounded-full
-              border border-white/40
-              text-white font-semibold text-lg
-              hover:bg-white/10
-              transition-all
-            "
-          >
-            Let’s Work Together
-          </a>
-        </motion.div>
-
-        {/* SOCIAL PROOF */}
-        <motion.div variants={item} className="flex justify-center gap-6 mb-16">
-          {portfolioData.hero.socialLinks.map((link: any) => {
-            const Icon = link.icon;
-            return (
-              <motion.a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                whileHover={{ scale: 1.15 }}
-                whileTap={{ scale: 0.95 }}
-                className="
-                  w-12 h-12 rounded-full
-                  bg-white/10 backdrop-blur
-                  flex items-center justify-center
-                "
-              >
-                <Icon className="text-xl" />
-              </motion.a>
-            );
-          })}
-        </motion.div>
-
-        {/* STATS */}
-        <motion.div
-          variants={item}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
-        >
-          <Stat value="3.5+" label="Years Experience" />
-          <Stat value="10+" label="Production Projects" />
-          <Stat value="5+" label="Payment Systems" />
-          <Stat value="Zero" label="Missed Deadlines" />
-        </motion.div>
-      </motion.div>
-
-      {/* SCROLL */}
-      <motion.div
+      <button
         onClick={() =>
           document.getElementById("services")?.scrollIntoView({
             behavior: "smooth",
           })
         }
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-        className="
-          absolute bottom-6 left-1/2 -translate-x-1/2 hidden
-          md:flex flex-col items-center gap-2
-          text-white/60 text-xs
-          cursor-pointer select-none z-40
-        "
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/45 transition hover:text-white md:flex"
       >
-        <span className="tracking-widest uppercase">Scroll</span>
-        <span className="text-lg">↓</span>
-      </motion.div>
+        Scroll <FiArrowDown aria-hidden />
+      </button>
     </section>
-  );
-}
-
-function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <p className="text-3xl font-bold">{value}</p>
-      <p className="text-sm text-white/70">{label}</p>
-    </div>
   );
 }

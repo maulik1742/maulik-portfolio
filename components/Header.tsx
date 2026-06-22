@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { FiMenu, FiX } from "react-icons/fi";
 import { portfolioData } from "../portfolio";
 
 const Header = () => {
@@ -10,91 +11,80 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -72, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 w-full z-50 ${
-        scrolled ? "backdrop-blur-xl bg-white/10 shadow-lg" : "bg-transparent"
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className={`fixed inset-x-0 top-0 z-50 transition ${
+        scrolled
+          ? "border-b border-white/10 bg-[#080a0f]/82 shadow-2xl shadow-black/25 backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="text-xl md:text-2xl font-extrabold tracking-tight text-white"
-        >
-          Maulik<span className="text-yellow-300">.</span>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <Link href="/" className="group flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center bg-teal-300 text-sm font-black text-slate-950">
+            MS
+          </span>
+          <span className="text-sm font-black uppercase tracking-[0.2em] text-white">
+            Maulik
+          </span>
         </Link>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-1 border border-white/10 bg-white/[0.035] p-1 backdrop-blur md:flex">
           {portfolioData.header.navLinks.map((link) => (
-            <motion.div key={link.name} whileHover="hover" className="relative">
-              <Link
-                href={link.url}
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                {link.name}
-              </Link>
-
-              {/* Animated underline */}
-              <motion.span
-                variants={{
-                  hover: { width: "100%" },
-                }}
-                className="absolute left-0 -bottom-1 h-[2px] w-0 bg-yellow-300"
-              />
-            </motion.div>
+            <Link
+              key={link.name}
+              href={link.url}
+              className="px-4 py-2 text-sm font-semibold text-white/62 transition hover:bg-white/[0.07] hover:text-white"
+            >
+              {link.name}
+            </Link>
           ))}
         </div>
 
-        {/* MOBILE BUTTON */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="md:hidden text-white focus:outline-none"
+        <a
+          href={`mailto:${portfolioData.contact.email}`}
+          className="hidden bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-teal-200 lg:inline-flex"
         >
-          <span className="block w-6 h-[2px] bg-white mb-1" />
-          <span className="block w-6 h-[2px] bg-white mb-1" />
-          <span className="block w-6 h-[2px] bg-white" />
+          Hire me
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setIsOpen((value) => !value)}
+          className="inline-flex h-10 w-10 items-center justify-center border border-white/15 text-white md:hidden"
+          aria-label={isOpen ? "Close navigation" : "Open navigation"}
+        >
+          {isOpen ? <FiX aria-hidden /> : <FiMenu aria-hidden />}
         </button>
       </nav>
 
-      {/* MOBILE MENU */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden backdrop-blur-xl bg-black/70"
+            exit={{ opacity: 0, y: -12 }}
+            className="border-t border-white/10 bg-[#080a0f]/95 px-6 py-5 backdrop-blur-xl md:hidden"
           >
-            <div className="px-6 py-6 space-y-4">
+            <div className="mx-auto grid max-w-7xl gap-2">
               {portfolioData.header.navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.url}
                   onClick={() => setIsOpen(false)}
-                  className="block text-white text-lg"
+                  className="border border-white/10 px-4 py-3 text-base font-semibold text-white/78"
                 >
                   {link.name}
                 </Link>
               ))}
-
-              <button
-                onClick={() => setIsOpen(false)}
-                className="mt-4 text-white/60 text-sm"
-              >
-                Close
-              </button>
             </div>
           </motion.div>
         )}

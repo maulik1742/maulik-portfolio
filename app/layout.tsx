@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Maulik Solanki | Full-Stack Developer (React, Next.js, Node.js)",
+  metadataBase: new URL("https://mauliksolanki.vercel.app"),
+  title: "Maulik Solanki | Full Stack Product Engineer",
   description:
-    "Maulik Solanki is a Full-Stack Developer with 3.5+ years of experience building scalable, high-performance web applications using React, Next.js, Node.js, and modern web technologies.",
+    "Maulik Solanki builds scalable, high-performance web applications using React, Next.js, Node.js, and modern MERN stack technologies.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -32,6 +22,7 @@ export const metadata: Metadata = {
     "Maulik Portfolio",
     "Maulik Solanki Portfolio",
     "Full Stack Developer",
+    "Full Stack Product Engineer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
@@ -44,14 +35,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Maulik Solanki" }],
   creator: "Maulik Solanki",
   openGraph: {
-    title: "Maulik Solanki | Full-Stack Developer Portfolio",
+    title: "Maulik Solanki | Full Stack Product Engineer",
     description:
-      "Explore projects, skills, and experience of Maulik Solanki — a Full-Stack Developer specializing in React, Next.js, and scalable web applications.",
+      "Explore projects, skills, and experience of Maulik Solanki, a developer specializing in React, Next.js, Node.js, and scalable web applications.",
     url: "https://mauliksolanki.vercel.app",
     siteName: "Maulik Solanki Portfolio",
     images: [
       {
-        url: "/og-image.png", // add this in /public
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Maulik Solanki Portfolio",
@@ -61,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Maulik Solanki | Full-Stack Developer",
+    title: "Maulik Solanki | Full Stack Product Engineer",
     description:
-      "Full-Stack Developer specializing in React, Next.js, and Node.js. Building scalable, modern web applications.",
+      "Full-stack developer specializing in React, Next.js, and Node.js. Building scalable, modern web applications.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -79,11 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

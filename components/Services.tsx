@@ -1,89 +1,84 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { FiCheck } from "react-icons/fi";
 import { portfolioData } from "../portfolio";
 
 const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-  },
+  hidden: { opacity: 0, y: 28 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.6,
-    },
+    transition: { delay: i * 0.12, duration: 0.55, ease: "easeOut" },
   }),
 };
 
 const Services = () => {
   return (
-    <section
-      id="services"
-      className="relative py-28 overflow-hidden  text-white"
-    >
-      {/* BACKGROUND GLOW */}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* HEADER */}
+    <section id="services" className="relative z-10 overflow-hidden py-24 text-white">
+      <div className="mx-auto max-w-7xl px-6">
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="mb-14 grid gap-6 md:grid-cols-[0.9fr_1.1fr]"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
-            How I Can Help You
-          </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto">
-            I don’t offer generic development services. I build focused,
-            high-impact solutions that solve real business problems and scale
-            with your growth.
+          <div>
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-teal-300">
+              Capabilities
+            </p>
+            <h2 className="text-4xl font-black tracking-normal text-white md:text-5xl">
+              Engineering that moves from idea to reliable product.
+            </h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-white/62 md:pt-8">
+            I focus on the parts that decide whether a product feels credible:
+            fast interfaces, clean flows, secure integrations, and backend
+            decisions that stay readable after launch.
           </p>
         </motion.div>
 
-        {/* SERVICES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {portfolioData.services.map((service, index) => (
-            <motion.div
-              key={index}
-              custom={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="relative group rounded-2xl p-8 bg-white/10 backdrop-blur-xl border border-white/10 shadow-xl"
-            >
-              {/* CARD GLOW */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-400/10 to-pink-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {portfolioData.services.map((service, index) => {
+            const Icon = service.icon;
 
-              {/* CONTENT */}
-              <div className="relative z-10">
-                {/* ICON */}
-                <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-yellow-400 text-black text-2xl font-bold mb-6">
-                  {service.icon}
+            return (
+              <motion.article
+                key={service.title}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                whileHover={{ y: -6 }}
+                className="group relative border border-white/10 bg-white/[0.045] p-6 backdrop-blur transition hover:border-teal-300/35 hover:bg-white/[0.07]"
+              >
+                <div className="mb-8 flex h-12 w-12 items-center justify-center bg-teal-300 text-xl text-slate-950 shadow-[0_12px_30px_rgba(45,212,191,0.18)]">
+                  <Icon aria-hidden />
                 </div>
 
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
+                <h3 className="text-2xl font-black text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-4 min-h-24 text-sm leading-7 text-white/62">
+                  {service.description}
+                </p>
 
-                <p className="text-white/80 mb-6">{service.description}</p>
-
-                {/* VALUE BULLETS */}
-                <ul className="space-y-2 text-sm text-white/70">
-                  {service.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-yellow-300 mt-1">▹</span>
+                <ul className="mt-7 space-y-3 border-t border-white/10 pt-6 text-sm text-white/72">
+                  {service.points.map((point) => (
+                    <li key={point} className="flex gap-3">
+                      <FiCheck
+                        aria-hidden
+                        className="mt-1 shrink-0 text-base text-yellow-300"
+                      />
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>
