@@ -32,7 +32,8 @@ const PortfolioSection = () => {
               Selected work
             </p>
             <h2 className="text-4xl font-black tracking-normal text-white md:text-5xl">
-              Real launches, sharper interfaces, cleaner systems.
+              Web development projects with sharper interfaces and cleaner
+              systems.
             </h2>
           </div>
           <p className="max-w-md text-sm leading-7 text-white/58">

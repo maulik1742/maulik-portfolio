@@ -15,7 +15,10 @@ const cardVariants: Variants = {
 
 const Services = () => {
   return (
-    <section id="services" className="relative z-10 overflow-hidden py-24 text-white">
+    <section
+      id="services"
+      className="relative z-10 overflow-hidden py-24 text-white"
+    >
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -29,17 +32,18 @@ const Services = () => {
               Capabilities
             </p>
             <h2 className="text-4xl font-black tracking-normal text-white md:text-5xl">
-              Engineering that moves from idea to reliable product.
+              Web development that moves from idea to reliable product.
             </h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-white/62 md:pt-8">
-            I focus on the parts that decide whether a product feels credible:
-            fast interfaces, clean flows, secure integrations, and backend
-            decisions that stay readable after launch.
+            As a web developer and MERN stack developer, I focus on the parts
+            that decide whether a product feels credible: fast interfaces, clean
+            flows, AI integrations, and backend decisions that stay readable
+            after launch.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {portfolioData.services.map((service, index) => {
             const Icon = service.icon;
 

@@ -54,20 +54,18 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="text-5xl font-black leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl"
+            className="max-w-2xl text-6xl font-black leading-[0.9] tracking-normal text-white sm:text-7xl lg:text-8xl"
           >
-            I build fast web products and AI integrations that survive
-            production.
+            Maulik Solanki
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-7 max-w-2xl text-lg leading-8 text-white/68 md:text-xl"
           >
-            {portfolioData.hero.name} is a{" "}
-            {portfolioData.hero.tagline.toLowerCase()} focused on Next.js, MERN
-            apps, dashboards, payments, and production-ready AI workflows for
-            ambitious teams.
+            MERN stack developer with 4 years of experience building fast,
+            scalable web applications and AI integrations with Next.js, React,
+            Node.js, dashboards, and secure payment workflows.
           </motion.p>
 
           <motion.div
