@@ -36,8 +36,9 @@ const PortfolioSection = () => {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-7 text-white/58">
-            A cross-section of AI tools, brand websites, trading workflows,
-            visitor management, communication platforms, and utility products.
+            A cross-section of AI-powered products, brand websites, trading
+            workflows, visitor management, communication platforms, and utility
+            products.
           </p>
         </motion.div>
 

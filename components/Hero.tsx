@@ -2,7 +2,12 @@
 
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import { FiArrowDown, FiArrowUpRight, FiDownload, FiMail } from "react-icons/fi";
+import {
+  FiArrowDown,
+  FiArrowUpRight,
+  FiDownload,
+  FiMail,
+} from "react-icons/fi";
 import { portfolioData } from "../portfolio";
 
 const container: Variants = {
@@ -21,7 +26,7 @@ const stats = [
   ["3.5+", "Years shipping"],
   ["10+", "Products built"],
   ["5+", "Payment flows"],
-  ["MERN", "Core stack"],
+  ["AI", "Product integrations"],
 ];
 
 const previewProjects = portfolioData.portfolio.slice(0, 3);
@@ -51,7 +56,7 @@ export default function Hero() {
             variants={item}
             className="text-5xl font-black leading-[0.98] tracking-normal text-white sm:text-6xl lg:text-7xl"
           >
-            I build web products that feel fast, look sharp, and survive
+            I build fast web products and AI integrations that survive
             production.
           </motion.h1>
 
@@ -59,9 +64,10 @@ export default function Hero() {
             variants={item}
             className="mt-7 max-w-2xl text-lg leading-8 text-white/68 md:text-xl"
           >
-            {portfolioData.hero.name} is a {portfolioData.hero.tagline.toLowerCase()} focused
-            on Next.js, MERN apps, dashboards, payments, and AI-powered
-            workflows for ambitious teams.
+            {portfolioData.hero.name} is a{" "}
+            {portfolioData.hero.tagline.toLowerCase()} focused on Next.js, MERN
+            apps, dashboards, payments, and production-ready AI workflows for
+            ambitious teams.
           </motion.p>
 
           <motion.div
@@ -95,7 +101,10 @@ export default function Hero() {
             className="mt-12 grid max-w-2xl grid-cols-2 border-y border-white/10 sm:grid-cols-4"
           >
             {stats.map(([value, label]) => (
-              <div key={label} className="border-white/10 py-5 sm:border-r sm:px-5 first:sm:pl-0 last:border-r-0">
+              <div
+                key={label}
+                className="border-white/10 py-5 sm:border-r sm:px-5 first:sm:pl-0 last:border-r-0"
+              >
                 <p className="text-3xl font-black text-white">{value}</p>
                 <p className="mt-1 text-xs uppercase tracking-[0.16em] text-white/48">
                   {label}

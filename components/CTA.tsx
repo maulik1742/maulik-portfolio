@@ -20,12 +20,13 @@ const CTA = () => {
               Let&apos;s build
             </p>
             <h2 className="max-w-3xl text-4xl font-black tracking-normal text-white md:text-6xl">
-              Have an idea? I&apos;ll help turn it into a product people can use.
+              Have an idea? I&apos;ll help turn it into a product people can
+              use.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/62">
-              Whether you are launching a startup, improving an existing
-              system, or building from scratch, I can help with architecture,
-              implementation, performance, and production polish.
+              Whether you are launching a startup, improving an existing system,
+              or building from scratch, I can help with architecture, AI
+              integrations, implementation, performance, and production polish.
             </p>
           </div>
 

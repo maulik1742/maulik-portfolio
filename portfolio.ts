@@ -1,5 +1,6 @@
 import {
   FaBolt,
+  FaBrain,
   FaCreditCard,
   FaGithub,
   FaInstagram,
@@ -37,6 +38,17 @@ export const portfolioData = {
     ],
   },
   services: [
+    {
+      icon: FaBrain,
+      title: "AI Integrations",
+      description:
+        "Practical AI features connected to real products, with thoughtful UX, reliable APIs, and production-ready guardrails.",
+      points: [
+        "OpenAI and Anthropic API integrations",
+        "RAG, embeddings, and vector search workflows",
+        "AI chat, content, image, and video features",
+      ],
+    },
     {
       icon: FaBolt,
       title: "Product-Grade Web Apps",
